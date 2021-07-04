@@ -21,7 +21,7 @@ class UserController
         $obj->register();
     }
 
-    ////////////////////////////////NOT WORKING 
+    ////////////////////////////////WORKING 
 
     public function login()
     {
@@ -33,7 +33,7 @@ class UserController
         $con = new user;
         $query = $con->connect($Reference);
         $row = $query->fetch(PDO::FETCH_ASSOC);
-        if (isset($row["Reference"])) {
+        if (isset($row["uref"])) {
             echo json_encode(["message" => "1"]);
         } else {
             echo json_encode(["message" => "0"]);

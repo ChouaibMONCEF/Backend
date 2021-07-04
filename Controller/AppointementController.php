@@ -4,13 +4,13 @@ require_once "model/appointement.php";
 
 class AppointementController{
 
-    ////////////////////////////////NOT WORKING CHECK CONNECTION
+    ////////////////////////////////WORKING
     
     function getUserAppointement($userid){
         header("Access-Control-Allow-Methods: GET");
         $obj = new Appointement;
         $userAppointement = $obj->getById($userid);
-        
+    
         echo json_encode($userAppointement);
     }
 

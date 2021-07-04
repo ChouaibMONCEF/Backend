@@ -20,7 +20,8 @@ class user{
     }
 
     function connect($uref){
-        return $this->db->login($uref);
+        $result = $this->db->login($uref);
+        return $result;
     }
 }
 

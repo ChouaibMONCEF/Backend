@@ -83,23 +83,23 @@ class connection {
     }
 
     function selectById($id){
-        $query = "SELECT * FROM appointements WHERE userid=$id";
+        $query = "SELECT * FROM appointments WHERE userid=$id";
+      
         
-        return $this->sql->query($query)->fetch_assoc;
 
-        // if ($this->sql->query($query)) {
-        //     return $this->sql->query($query)->fetchAll()[0];
-        // } else {
-        //     echo "Error";
-        // }
+        if ($this->sql->query($query)) {
+            return $this->sql->query($query)->fetchAll();
+        } else {
+            echo "Error";
+        }
         // die(print_r($query));
         
     }
 
     function login($Reference){
         $query = "SELECT * FROM users WHERE uref='" . $Reference . "'" ;
-        $stmt = prepare($query);
-        $this->sql->query($query);
+        return $this->sql->query($query);
+       
     }
 }
 
