@@ -1,13 +1,15 @@
 <?php
 
-class connection {
+class connection
+{
     public $servername = 'localhost';
     public $username = 'root';
     public $password = '';
     public $dbname = 'backend';
     public $sql;
 
-    function __construct(){
+    public function __construct()
+    {
         try {
             $this->sql = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
         } catch (PDOException $e) {
@@ -17,25 +19,28 @@ class connection {
 
     // ----------------------------------------------------------------getAll
 
-    function getAll($table){
+    public function getAll($table)
+    {
         $query = "SELECT * from" . $table;
         return $this->sql->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     // ----------------------------------------------------------------delete
 
-    function delete($table, $id){
+    public function delete($table, $id)
+    {
         $query = "DELETE from $table WHERE id=$id";
         $this->sql->query($query);
     }
 
     // ----------------------------------------------------------------add
 
-    function add($table, $tabName, $tabValue){
+    public function add($table, $tabName, $tabValue)
+    {
         $name = "";
         $value = "";
         $vrg = "";
-        for ($i=0; $i < count($tabName); $i++){
+        for ($i = 0; $i < count($tabName); $i++) {
             if ($i > 0) {
                 $vrg = ",";
             }
@@ -43,8 +48,8 @@ class connection {
         }
 
         $vrg = "";
-        for ($i = 0; $i < count($tabValue); $i++){
-            if($i > 0) {
+        for ($i = 0; $i < count($tabValue); $i++) {
+            if ($i > 0) {
                 $vrg = ",";
             }
             $value .= $vrg . "'" . $tabValue[$i] . "'";
@@ -60,32 +65,34 @@ class connection {
 
     // ----------------------------------------------------------------update
 
-    function update($table , $tabName, $tabValue, $id){
+    public function update($table, $tabName, $tabValue, $id)
+    {
         $name = "";
         $value = "";
         $vrg = "";
-        for($i = 0; $i < count($tabName); $i++){
-            if ($i > 0){
-            $vrg = ",";
+        for ($i = 0; $i < count($tabName); $i++) {
+            if ($i > 0) {
+                $vrg = ",";
             }
-            $name .= $vrg . "`" . $tabName[$i] . "`" . $tabValue . "`" ;
+            $name .= $vrg . "`" . $tabName[$i] . "`" . $tabValue . "`";
         }
 
-        $query = "UPDATE " . $table . " SET" . $name . " WHERE id=" . $id ;
+        $query = "UPDATE " . $table . " SET" . $name . " WHERE id=" . $id;
         $this->sql->query($query);
     }
 
     // ---------------------------------------------------------------add
 
-    function edit($table, $id){
-        $query = "SELECT * FROM " . $table . "WHERE id=" . $id ;
+    public function edit($table, $id)
+    {
+        $query = "SELECT * FROM " . $table . "WHERE id=" . $id;
         return $this->sql->query($query)->fetchAll()[0];
     }
 
-    function selectById($id){
+    public function selectById($id)
+    {
         $query = "SELECT * FROM appointments WHERE userid=$id";
-      
-        
+
 
         if ($this->sql->query($query)) {
             return $this->sql->query($query)->fetchAll();
@@ -93,14 +100,11 @@ class connection {
             echo "Error";
         }
         // die(print_r($query));
-        
     }
 
-    function login($Reference){
-        $query = "SELECT * FROM users WHERE uref='" . $Reference . "'" ;
+    public function login($Reference)
+    {
+        $query = "SELECT * FROM users WHERE uref='" . $Reference . "'";
         return $this->sql->query($query);
-       
     }
 }
-
-?>

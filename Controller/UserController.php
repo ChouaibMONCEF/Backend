@@ -7,6 +7,8 @@ class UserController
 
     ////////////////////////////////WORKING
 
+    ////////////////////////////////FETCH ALL DATA EXPECT REFERENCE
+
     public function Register()
     {
         header("Access-Control-Allow-Methods: POST");
@@ -22,6 +24,8 @@ class UserController
     }
 
     ////////////////////////////////WORKING 
+
+    ////////////////////////////////STILL NOT WORKING IN THE FRONTEND
 
     public function login()
     {
