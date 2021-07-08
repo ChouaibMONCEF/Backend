@@ -4,10 +4,9 @@ require_once "model/user.php";
 
 class UserController
 {
-
     ////////////////////////////////WORKING
 
-    ////////////////////////////////FETCH ALL DATA EXPECT REFERENCE
+    ////////////////////////////////WORKING
 
     public function Register()
     {
@@ -25,14 +24,12 @@ class UserController
 
     ////////////////////////////////WORKING 
 
-    ////////////////////////////////STILL NOT WORKING IN THE FRONTEND
+    ////////////////////////////////WORKING
 
     public function login()
     {
         header("Access-Control-Allow-Methods: POST");
         $data = json_decode(file_get_contents("php://input"));
-        
-
         $Reference = $data->uref;
         $con = new user;
         $query = $con->connect($Reference);

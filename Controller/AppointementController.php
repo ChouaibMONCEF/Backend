@@ -35,15 +35,11 @@ class AppointementController{
 
     ////////////////////////////////WORKING
 
-    ////////////////////////////////NOT WOKRKING YET
+    ////////////////////////////////WORKING
 
     function deleteAppointement($id){
         $data = json_decode(file_get_contents("php://input"));
         $obj = new Appointement;
-
-        
-
-     
 
         $obj->delete($id);
 
@@ -51,7 +47,7 @@ class AppointementController{
 
     ////////////////////////////////NOT WORKING
 
-    ////////////////////////////////NOT WORKING IN THE FRONTEND TOO OBVIOUSLY
+    ////////////////////////////////NOT WORKING IN THE FRONTEND TOO, OBVIOUSLY
 
     function updateAppointement($id){
         $data = json_decode(file_get_contents("php://input"));
