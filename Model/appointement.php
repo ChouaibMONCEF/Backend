@@ -7,7 +7,7 @@ class appointement{
     public $id;
     public $subject;
     public $reminder;
-    public $userid;
+    public $rref;
     
     static private $table="appointments";
 
@@ -21,11 +21,11 @@ class appointement{
 
 
     function AddAppointement(){
-        return $this->db->add(self::$table, ["date", "subject", "reminder", "userid"], [$this->date, $this->subject, $this->reminder, $this->userid]);
+        return $this->db->add(self::$table, ["date", "subject", "reminder", "rref"], [$this->date, $this->subject, $this->reminder, $this->rref]);
     }
 
     function update($id){
-        return $this->db->update(self::$table, ["date", "subject", "reminder", "userid"], [$this->date, $this->reminder, $this->reminder, $this->userid], $id);
+        return $this->db->update(self::$table, ["date", "subject", "reminder", "rref"], [$this->date, $this->reminder, $this->reminder, $this->rref], $id);
     }
 
     function delete($id){

@@ -8,10 +8,10 @@ class AppointementController{
 
     ////////////////////////////////WORKING FROM THE FRONTEND STILL NEED SOME UPDATES AFTER FINISHING THE LOGIN
     
-    function getUserAppointement($userid){
+    function getUserAppointement($uefoe){
         header("Access-Control-Allow-Methods: GET");
         $obj = new Appointement;
-        $userAppointement = $obj->getById($userid);
+        $userAppointement = $obj->getById($uefoe);
     
         echo json_encode(["appointment"=>$userAppointement]);
     }
@@ -28,7 +28,7 @@ class AppointementController{
         $obj->date = $data->date;
         $obj->subject = $data->subject;
         $obj->reminder = $data->reminder;
-        $obj->userid = $data->userid;
+        $obj->rref = $data->rref;
 
         $obj->AddAppointement();
     }

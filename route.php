@@ -8,8 +8,8 @@ $params = explode('/', $_GET['p']);
 
 if (isset($params[0]) & !empty($params[0])) {
     $controller = ucfirst($params[0]) . "Controller";
-    if (file_exists("controller/" . $controller . ".php")) {
-        require_once "controller/" . $controller . ".php";
+    if (file_exists("Controller/" . $controller . ".php")) {
+        require_once "Controller/" . $controller . ".php";
         $obj = new $controller();
         if (isset($params[1]) & !empty($params[1])) {
             if (method_exists($obj, $params[1])){

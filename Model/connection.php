@@ -19,11 +19,11 @@ class connection
 
     // ----------------------------------------------------------------getAll
 
-    public function getAll($table)
-    {
-        $query = "SELECT * from" . $table;
-        return $this->sql->query($query)->fetchAll(PDO::FETCH_ASSOC);
-    }
+    // public function getAll($table)
+    // {
+    //     $query = "SELECT * from" . $table;
+    //     return $this->sql->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    // }
 
     // ----------------------------------------------------------------delete
 
@@ -91,7 +91,8 @@ class connection
 
     public function selectById($id)
     {
-        $query = "SELECT * FROM appointments WHERE userid=$id";
+
+        $query = "SELECT * FROM appointments WHERE Rref='$id'";
 
 
         if ($this->sql->query($query)) {

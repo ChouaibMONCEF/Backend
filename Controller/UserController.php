@@ -35,7 +35,7 @@ class UserController
         $query = $con->connect($Reference);
         $row = $query->fetch(PDO::FETCH_ASSOC);
         if (isset($row["uref"])) {
-            echo json_encode(["message" => "1"]);
+            echo json_encode(["User"=>$row]);
         } else {
             echo json_encode(["message" => "0"]);
         }
